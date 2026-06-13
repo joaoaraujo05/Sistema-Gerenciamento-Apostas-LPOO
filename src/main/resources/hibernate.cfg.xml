@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.url">jdbc:h2:./apostas_db;AUTO_SERVER=TRUE</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="br.com.sistema.model.entities.Time"/>
+        <mapping class="br.com.sistema.model.entities.Campeonato"/>
+        <mapping class="br.com.sistema.model.entities.Usuario"/>
+        <mapping class="br.com.sistema.model.entities.UsuarioAdministrador"/>
+        <mapping class="br.com.sistema.model.entities.UsuarioParticipante"/>
+        <mapping class="br.com.sistema.model.entities.Grupo"/>
+        <mapping class="br.com.sistema.model.entities.Partida"/>
+        <mapping class="br.com.sistema.model.entities.Aposta"/>
+    </session-factory>
+</hibernate-configuration>

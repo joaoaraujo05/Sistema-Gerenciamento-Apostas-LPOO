@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TimeDAOBinarioImpl implements ITimeDAO {
 
-    private static final String FILE_PATH = "/Users/joaoaraujo05/Desktop/Estudos/UNAERP/POO/sistema-aposta/dados/times.bin";
+    private static final String FILE_PATH = "./dados/times.bin";
 
     private List<Time> times;
 

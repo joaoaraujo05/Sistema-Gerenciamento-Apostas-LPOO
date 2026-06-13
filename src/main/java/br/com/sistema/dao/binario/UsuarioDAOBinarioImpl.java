@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
-    private static final String FILE_PATH = "/Users/joaoaraujo05/Desktop/Estudos/UNAERP/POO/sistema-aposta/dados/usuarios.bin";
+    private static final String FILE_PATH = "./dados/usuarios.bin";
 
     private List<Usuario> usuarios;
 

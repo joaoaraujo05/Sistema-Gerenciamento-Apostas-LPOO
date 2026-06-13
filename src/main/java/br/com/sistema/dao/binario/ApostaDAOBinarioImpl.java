@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ApostaDAOBinarioImpl implements IApostaDAO {
 
-    private static final String FILE_PATH = "/Users/joaoaraujo05/Desktop/Estudos/UNAERP/POO/sistema-aposta/dados/apostas.bin";
+    private static final String FILE_PATH = "./dados/apostas.bin";
 
     private List<Aposta> apostas;
 

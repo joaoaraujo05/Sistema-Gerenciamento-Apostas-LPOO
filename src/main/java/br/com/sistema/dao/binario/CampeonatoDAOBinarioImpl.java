@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CampeonatoDAOBinarioImpl implements ICampeonatoDAO {
 
-    private static final String FILE_PATH = "/Users/joaoaraujo05/Desktop/Estudos/UNAERP/POO/sistema-aposta/dados/campeonatos.bin";
+    private static final String FILE_PATH = "./dados/campeonatos.bin";
 
     private List<Campeonato> campeonatos;
 

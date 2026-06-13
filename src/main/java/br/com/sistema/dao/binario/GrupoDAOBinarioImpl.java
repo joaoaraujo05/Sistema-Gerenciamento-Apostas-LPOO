@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GrupoDAOBinarioImpl implements IGrupoDAO {
 
-    private static final String FILE_PATH = "/Users/joaoaraujo05/Desktop/Estudos/UNAERP/POO/sistema-aposta/dados/grupos.bin";
+    private static final String FILE_PATH = "./dados/grupos.bin";
 
     private List<Grupo> grupos;
 

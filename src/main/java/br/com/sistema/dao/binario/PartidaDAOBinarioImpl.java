@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PartidaDAOBinarioImpl implements IPartidaDAO {
 
-    private static final String FILE_PATH = "/Users/joaoaraujo05/Desktop/Estudos/UNAERP/POO/sistema-aposta/dados/partidas.bin";
+    private static final String FILE_PATH = "./dados/partidas.bin";
 
     private List<Partida> partidas;
 

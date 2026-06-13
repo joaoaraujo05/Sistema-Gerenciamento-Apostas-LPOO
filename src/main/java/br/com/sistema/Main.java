@@ -9,9 +9,9 @@ import br.com.sistema.view.LoginView;
 import javax.swing.*;
 
 public class Main {
-    private static final int TIPO_PERSISTENCIA = 1; // 1 = Hibernate
+    //private static final int TIPO_PERSISTENCIA = 1; // 1 = Hibernate
     //private static final int TIPO_PERSISTENCIA = 2; // 2 = JDBC
-    //private static final int TIPO_PERSISTENCIA = 3;    // 3 = Arquivo Binário
+    private static final int TIPO_PERSISTENCIA = 3;    // 3 = Arquivo Binário
 
     public static void main( String[] args ) {
 

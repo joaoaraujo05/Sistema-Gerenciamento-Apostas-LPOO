@@ -51,6 +51,7 @@ public class PartidaDAOBinarioImpl implements IPartidaDAO {
 
     @Override
     public void salvarPartida(Partida p) {
+        carregarArquivo();
         p.setIdPartida(gerarProximoId());
         partidas.add(p);
         salvarArquivo();
@@ -58,6 +59,7 @@ public class PartidaDAOBinarioImpl implements IPartidaDAO {
 
     @Override
     public void atualizarPartida(Partida p) {
+        carregarArquivo();
         for (int i = 0; i < partidas.size(); i++) {
             if (partidas.get(i).getIdPartida().equals(p.getIdPartida())) {
                 partidas.set(i, p);
@@ -69,12 +71,14 @@ public class PartidaDAOBinarioImpl implements IPartidaDAO {
 
     @Override
     public void removerPartidaPorId(Long id) {
+        carregarArquivo();
         partidas.removeIf(p -> p.getIdPartida().equals(id));
         salvarArquivo();
     }
 
     @Override
     public Partida encontrarPartidaPorId(Long id) {
+        carregarArquivo();
         Partida p = null;
 
         for (Partida partida : partidas) {
@@ -89,6 +93,7 @@ public class PartidaDAOBinarioImpl implements IPartidaDAO {
 
     @Override
     public List<Partida> listarPartidas() {
+        carregarArquivo();
         return new ArrayList<>(partidas);
     }
 }

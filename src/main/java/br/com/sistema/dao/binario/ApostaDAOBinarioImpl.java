@@ -51,6 +51,7 @@ public class ApostaDAOBinarioImpl implements IApostaDAO {
 
     @Override
     public void salvarAposta(Aposta a) {
+        carregarArquivo();
         a.setIdAposta(gerarProximoId());
         apostas.add(a);
         salvarArquivo();
@@ -58,6 +59,7 @@ public class ApostaDAOBinarioImpl implements IApostaDAO {
 
     @Override
     public void atualizarAposta(Aposta a) {
+        carregarArquivo();
         for (int i = 0; i < apostas.size(); i++) {
             if (apostas.get(i).getIdAposta().equals(a.getIdAposta())) {
                 apostas.set(i, a);
@@ -69,12 +71,14 @@ public class ApostaDAOBinarioImpl implements IApostaDAO {
 
     @Override
     public void removerApostaPorId(Long id) {
+        carregarArquivo();
         apostas.removeIf(a -> a.getIdAposta().equals(id));
         salvarArquivo();
     }
 
     @Override
     public Aposta encontrarApostaPorId(Long id) {
+        carregarArquivo();
         Aposta a = null;
 
         for (Aposta aposta : apostas) {
@@ -89,11 +93,13 @@ public class ApostaDAOBinarioImpl implements IApostaDAO {
 
     @Override
     public List<Aposta> listarApostas() {
+        carregarArquivo();
         return new ArrayList<>(apostas);
     }
 
     @Override
     public List<Aposta> listarApostasPorPartida(Long idPartida) {
+        carregarArquivo();
         List<Aposta> resultado = new ArrayList<>();
 
         for (Aposta a : apostas) {

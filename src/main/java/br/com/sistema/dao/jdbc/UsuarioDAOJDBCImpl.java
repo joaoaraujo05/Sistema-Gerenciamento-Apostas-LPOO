@@ -134,12 +134,12 @@ public class UsuarioDAOJDBCImpl implements IUsuarioDAO {
         st.setString(1, u.getNome());
         st.setString(2, u.getLogin());
         st.setString(3, u.getSenha());
-        st.setString(4, u.obterPerfil()); // discriminador "ADMINISTRADOR" ou "PARTICIPANTE"
+        st.setString(4, u.obterPerfil());
 
         if (u instanceof UsuarioParticipante) {
             st.setInt(5, ((UsuarioParticipante) u).getPontuacaoTotal());
         } else {
-            st.setInt(5, 0); // administrador nao tem pontuacao
+            st.setInt(5, 0);
         }
     }
 

@@ -51,6 +51,7 @@ public class TimeDAOBinarioImpl implements ITimeDAO {
 
     @Override
     public void salvarTime(Time t) {
+        carregarArquivo();
         t.setIdTime(gerarProximoId());
         times.add(t);
         salvarArquivo();
@@ -58,6 +59,7 @@ public class TimeDAOBinarioImpl implements ITimeDAO {
 
     @Override
     public void atualizarTime(Time t) {
+        carregarArquivo();
         for (int i=0; i < times.size(); i++) {
             if (times.get(i).getIdTime().equals(t.getIdTime())) {
                 times.set(i,t);
@@ -69,12 +71,14 @@ public class TimeDAOBinarioImpl implements ITimeDAO {
 
     @Override
     public void removerTimePorId(Long id) {
+        carregarArquivo();
         times.removeIf(p-> p.getIdTime().equals(id));
         salvarArquivo();
     }
 
     @Override
     public Time encontrarTimePorId(Long id) {
+        carregarArquivo();
         Time t = null;
 
         for (Time time : times) {
@@ -89,6 +93,7 @@ public class TimeDAOBinarioImpl implements ITimeDAO {
 
     @Override
     public List<Time> listarTimes() {
+        carregarArquivo();
         return new ArrayList<>(times);
     }
 }

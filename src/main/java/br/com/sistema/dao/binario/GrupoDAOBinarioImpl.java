@@ -51,6 +51,7 @@ public class GrupoDAOBinarioImpl implements IGrupoDAO {
 
     @Override
     public void salvarGrupo(Grupo g) {
+        carregarArquivo();
         g.setIdGrupo(gerarProximoId());
         grupos.add(g);
         salvarArquivo();
@@ -58,6 +59,7 @@ public class GrupoDAOBinarioImpl implements IGrupoDAO {
 
     @Override
     public void atualizarGrupo(Grupo g) {
+        carregarArquivo();
         for (int i = 0; i < grupos.size(); i++) {
             if (grupos.get(i).getIdGrupo().equals(g.getIdGrupo())) {
                 grupos.set(i, g);
@@ -69,12 +71,14 @@ public class GrupoDAOBinarioImpl implements IGrupoDAO {
 
     @Override
     public void removerGrupoPorId(Long id) {
+        carregarArquivo();
         grupos.removeIf(g -> g.getIdGrupo().equals(id));
         salvarArquivo();
     }
 
     @Override
     public Grupo encontrarGrupoPorId(Long id) {
+        carregarArquivo();
         Grupo g = null;
 
         for (Grupo grupo : grupos) {
@@ -89,6 +93,7 @@ public class GrupoDAOBinarioImpl implements IGrupoDAO {
 
     @Override
     public List<Grupo> listarGrupos() {
+        carregarArquivo();
         return new ArrayList<>(grupos);
     }
 }

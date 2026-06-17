@@ -53,6 +53,7 @@ public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
     @Override
     public void salvarUsuario(Usuario u) {
+        carregarArquivo();
         u.setId(gerarProximoId());
         usuarios.add(u);
         salvarArquivo();
@@ -60,6 +61,7 @@ public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
     @Override
     public void atualizarUsuario(Usuario u) {
+        carregarArquivo();
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getId().equals(u.getId())) {
                 usuarios.set(i, u);
@@ -71,12 +73,14 @@ public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
     @Override
     public void removerUsuarioPorId(Long id) {
+        carregarArquivo();
         usuarios.removeIf(u -> u.getId().equals(id));
         salvarArquivo();
     }
 
     @Override
     public Usuario encontrarUsuarioPorId(Long id) {
+        carregarArquivo();
         Usuario u = null;
 
         for (Usuario usuario : usuarios) {
@@ -91,6 +95,7 @@ public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
     @Override
     public Usuario encontrarPorLogin(String login) {
+        carregarArquivo();
         Usuario u = null;
 
         for (Usuario usuario : usuarios) {
@@ -105,6 +110,7 @@ public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
     @Override
     public List<UsuarioParticipante> listarParticipantes() {
+        carregarArquivo();
         List<UsuarioParticipante> participantes = new ArrayList<>();
 
         for (Usuario u : usuarios) {
@@ -118,6 +124,7 @@ public class UsuarioDAOBinarioImpl implements IUsuarioDAO {
 
     @Override
     public List<UsuarioParticipante> listarParticipantesPorGrupo(Long idGrupo) {
+        carregarArquivo();
         List<UsuarioParticipante> resultado = new ArrayList<>();
 
         for (Usuario u : usuarios) {

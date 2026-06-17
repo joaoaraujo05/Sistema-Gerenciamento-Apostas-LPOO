@@ -51,6 +51,7 @@ public class CampeonatoDAOBinarioImpl implements ICampeonatoDAO {
 
     @Override
     public void salvarCampeonato(Campeonato c) {
+        carregarArquivo();
         c.setIdCampeonato(gerarProximoId());
         campeonatos.add(c);
         salvarArquivo();
@@ -58,6 +59,7 @@ public class CampeonatoDAOBinarioImpl implements ICampeonatoDAO {
 
     @Override
     public void atualizarCampeonato(Campeonato c) {
+        carregarArquivo();
         for (int i = 0; i < campeonatos.size(); i++) {
             if (campeonatos.get(i).getIdCampeonato().equals(c.getIdCampeonato())) {
                 campeonatos.set(i, c);
@@ -69,12 +71,14 @@ public class CampeonatoDAOBinarioImpl implements ICampeonatoDAO {
 
     @Override
     public void removerCampeonatoPorId(Long id) {
+        carregarArquivo();
         campeonatos.removeIf(c -> c.getIdCampeonato().equals(id));
         salvarArquivo();
     }
 
     @Override
     public Campeonato encontrarCampeonatoPorId(Long id) {
+        carregarArquivo();
         Campeonato c = null;
 
         for (Campeonato campeonato : campeonatos) {
@@ -89,6 +93,7 @@ public class CampeonatoDAOBinarioImpl implements ICampeonatoDAO {
 
     @Override
     public List<Campeonato> listarCampeonatos() {
+        carregarArquivo();
         return new ArrayList<>(campeonatos);
     }
 }

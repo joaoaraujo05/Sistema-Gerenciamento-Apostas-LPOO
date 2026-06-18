@@ -160,7 +160,6 @@ public class ParticipanteView extends JPanel {
                 usuarioController.cadastrarParticipante(nome, login, senha);
                 JOptionPane.showMessageDialog(this, "Participante cadastrado!");
             } else {
-                // na edicao, senha em branco mantem a atual
                 usuarioController.atualizarParticipante(idParticipante, nome, login, senha);
                 JOptionPane.showMessageDialog(this, "Participante atualizado!");
             }

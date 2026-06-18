@@ -145,7 +145,6 @@ public class CampeonatoView extends JPanel {
         idCampeonato = (Long) tabela.getValueAt(row, 0);
         txtNomeCamp.setText(tabela.getValueAt(row, 1).toString());
 
-        // marca na lista os times que ja fazem parte do campeonato
         Campeonato c = campeonatoController.buscarCampeonatoPorId(idCampeonato);
         List<Integer> indices = new ArrayList<>();
         if (c != null) {
